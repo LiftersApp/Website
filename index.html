@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lifters — Personal Performance Coaching</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#161513;
+  --bg-2:#1d1b18;
+  --charcoal:#252320;
+  --cream:#ede8df;
+  --cream-mid:#b0a89e;
+  --cream-dim:#6e6760;
+  --border:rgba(237,232,223,0.08);
+  --border-s:rgba(237,232,223,0.15);
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--cream);
+  font-family:'Courier Prime',monospace;
+  font-weight:400;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:2rem 4rem;background:linear-gradient(to bottom,rgba(22,21,19,0.97),transparent)}
+.nav-logo{font-family:'Special Elite',serif;font-size:1.35rem;letter-spacing:.08em;color:var(--cream);text-decoration:none}
+.nav-links{display:flex;gap:3rem;list-style:none}
+.nav-links a{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cream-dim);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--cream)}
+.nav-cta{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--bg);background:var(--cream);text-decoration:none;padding:.7rem 1.6rem;transition:opacity .2s}
+.nav-cta:hover{opacity:.88}
+
+.hero{min-height:100vh;display:grid;grid-template-rows:1fr auto;padding:0 4rem 5rem}
+.hero-center{display:flex;flex-direction:column;justify-content:center;padding-top:8rem}
+.eyebrow{display:flex;align-items:center;gap:1.5rem;margin-bottom:3.5rem}
+.eyebrow-line{width:44px;height:1px;background:var(--cream-mid);opacity:.35}
+.eyebrow-text{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--cream-mid)}
+.hero-h{font-family:'Special Elite',serif;font-size:clamp(4rem,8.5vw,9.5rem);line-height:.92;color:var(--cream);max-width:900px;letter-spacing:.01em}
+.hero-h em{font-style:normal;color:var(--cream-mid);text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px}
+.hero-bot{display:flex;justify-content:space-between;align-items:flex-end;padding-top:4rem;border-top:1px solid var(--border);margin-top:4.5rem}
+.hero-sub{font-size:.88rem;color:var(--cream-dim);max-width:360px;line-height:1.9}
+.hero-acts{display:flex;align-items:center;gap:2.5rem}
+.btn-p{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--bg);background:var(--cream);text-decoration:none;padding:.9rem 2.1rem;transition:opacity .2s;display:inline-block}
+.btn-p:hover{opacity:.88}
+.btn-t{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cream-dim);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:.6rem}
+.btn-t::after{content:'-->';transition:transform .2s}
+.btn-t:hover{color:var(--cream)}
+.btn-t:hover::after{transform:translateX(4px)}
+
+.marquee{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.1rem 0;overflow:hidden;background:var(--bg-2)}
+.m-track{display:flex;animation:scroll 32s linear infinite;white-space:nowrap}
+.m-item{display:flex;align-items:center;gap:2.5rem;padding:0 2.5rem;font-size:.65rem;letter-spacing:.24em;text-transform:uppercase;color:var(--cream-dim);flex-shrink:0}
+.m-dot{width:3px;height:3px;background:var(--cream-mid);border-radius:50%;opacity:.3}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+section{padding:9rem 4rem}
+.s-lbl{font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--cream-mid);margin-bottom:2.5rem;display:flex;align-items:center;gap:1.2rem}
+.s-lbl::before{content:'//';color:var(--cream-dim);opacity:.5;font-size:.6rem;letter-spacing:.05em}
+.s-title{font-family:'Special Elite',serif;font-size:clamp(2.8rem,5vw,5.2rem);line-height:.93;color:var(--cream);letter-spacing:.01em}
+.s-title em{font-style:normal;color:var(--cream-mid);text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+
+.phil{background:var(--bg-2);display:grid;grid-template-columns:1fr 1fr;gap:8rem;align-items:center}
+.phil-body{margin-top:2.75rem;color:var(--cream-dim);font-size:.88rem;line-height:2;max-width:420px}
+.phil-q{margin-top:2.75rem;padding-left:1.5rem;border-left:1px solid var(--border-s);font-size:1rem;color:var(--cream-mid);line-height:1.7;font-style:italic}
+.pillars{display:flex;flex-direction:column}
+.pillar{padding:2.1rem 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:2.75rem 1fr;gap:1.5rem;align-items:start}
+.pillar:first-child{border-top:1px solid var(--border)}
+.p-num{font-size:.78rem;color:var(--cream-dim);opacity:.5;padding-top:3px}
+.p-content h3{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);margin-bottom:.45rem}
+.p-content p{font-size:.84rem;color:var(--cream-dim);line-height:1.85}
+
+.how{background:var(--bg)}
+.how-intro{display:grid;grid-template-columns:1fr 1fr;gap:8rem;margin-bottom:5.5rem;align-items:end}
+.how-sub{font-size:.88rem;color:var(--cream-dim);line-height:1.9}
+.how-steps{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border)}
+.h-step{padding:3rem 2.5rem;border-right:1px solid var(--border);transition:background .25s}
+.h-step:last-child{border-right:none}
+.h-step:hover{background:rgba(237,232,223,0.02)}
+.h-num{font-family:'Special Elite',serif;font-size:2rem;color:var(--cream-mid);opacity:.2;line-height:1;margin-bottom:1.75rem}
+.h-step h3{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);margin-bottom:.65rem}
+.h-step p{font-size:.82rem;color:var(--cream-dim);line-height:1.85}
+
+.programs{background:var(--bg-2)}
+.prog-hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:5rem}
+.prog-note{font-size:.78rem;color:var(--cream-dim);max-width:270px;text-align:right;line-height:1.75}
+.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border)}
+.prog-card{padding:3.5rem 3rem;border-right:1px solid var(--border);display:flex;flex-direction:column;position:relative}
+.prog-card:last-child{border-right:none}
+.prog-card.feat{background:rgba(237,232,223,0.03)}
+.feat-badge{position:absolute;top:0;left:0;right:0;text-align:center;font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--cream-mid);background:rgba(237,232,223,0.04);padding:.55rem;border-bottom:1px solid var(--border)}
+.prog-card.feat{padding-top:4.5rem}
+.prog-tier{font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--cream-mid);margin-bottom:1.2rem}
+.prog-name{font-family:'Special Elite',serif;font-size:2.2rem;color:var(--cream);line-height:1;margin-bottom:1.2rem}
+.prog-desc{font-size:.82rem;color:var(--cream-dim);line-height:1.9;margin-bottom:2.5rem;flex:1}
+.prog-price{display:flex;align-items:baseline;gap:.45rem;margin-bottom:2.5rem;padding-top:1.75rem;border-top:1px solid var(--border)}
+.p-amt{font-family:'Special Elite',serif;font-size:2.4rem;color:var(--cream);line-height:1}
+.p-per{font-size:.72rem;color:var(--cream-dim);letter-spacing:.08em}
+.prog-feats{list-style:none;margin-bottom:2.5rem;display:flex;flex-direction:column;gap:.65rem}
+.prog-feats li{font-size:.79rem;color:var(--cream-dim);display:flex;align-items:flex-start;gap:.7rem;line-height:1.55}
+.prog-feats li::before{content:'--';color:var(--cream-dim);opacity:.4;flex-shrink:0}
+.prog-cta{display:block;text-align:center;padding:.85rem;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;border:1px solid var(--border-s);color:var(--cream-dim);transition:all .2s;margin-top:auto}
+.prog-cta:hover,.prog-card.feat .prog-cta{background:var(--cream);color:var(--bg);border-color:var(--cream)}
+
+.about{background:var(--bg)}
+.about-grid{display:grid;grid-template-columns:5fr 4fr;gap:8rem;align-items:start}
+.about-body{margin-top:3.25rem;font-size:.88rem;color:var(--cream-dim);line-height:1.95}
+.about-body p+p{margin-top:1.2rem}
+.a-stats{margin-top:3.75rem;display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border)}
+.a-stat{padding:1.75rem 1.5rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.a-stat:nth-child(even){border-right:none}
+.a-stat:nth-child(3),.a-stat:nth-child(4){border-bottom:none}
+.a-val{font-family:'Special Elite',serif;font-size:1.9rem;color:var(--cream);line-height:1;margin-bottom:.35rem}
+.a-lbl{font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim)}
+.about-r{padding-top:1rem}
+.manifesto{font-size:1rem;color:var(--cream-mid);line-height:1.75;margin-bottom:2.75rem;font-style:italic;border-left:1px solid var(--border-s);padding-left:1.5rem}
+.a-detail{font-size:.83rem;color:var(--cream-dim);line-height:1.95}
+
+.cta-sec{background:var(--charcoal);padding:9rem 4rem;display:grid;grid-template-columns:1fr auto;gap:6rem;align-items:center;border-top:1px solid var(--border);background:var(--bg-2)}
+.cta-h{font-family:'Special Elite',serif;font-size:clamp(3rem,5.5vw,5.5rem);line-height:.93;color:var(--cream)}
+.cta-h em{font-style:normal;color:var(--cream-mid);text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px}
+.cta-r{display:flex;flex-direction:column;gap:1.5rem;align-items:flex-end;min-width:220px}
+.cta-note{font-size:.78rem;color:var(--cream-dim);text-align:right;line-height:1.75;max-width:210px}
+
+footer{background:var(--bg);border-top:1px solid var(--border);padding:3.25rem 4rem;display:flex;justify-content:space-between;align-items:center}
+.f-logo{font-family:'Special Elite',serif;font-size:1.2rem;letter-spacing:.06em;color:var(--cream)}
+.f-links{display:flex;gap:2.5rem;list-style:none}
+.f-links a{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim);text-decoration:none;transition:color .2s}
+.f-links a:hover{color:var(--cream)}
+.f-copy{font-size:.65rem;color:rgba(110,103,96,.38);letter-spacing:.04em}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  nav{padding:1.5rem 2rem}
+  .nav-links{display:none}
+  .hero{padding:0 2rem 4rem}
+  section{padding:6rem 2rem}
+  .phil,.about-grid{grid-template-columns:1fr;gap:4rem}
+  .how-intro{grid-template-columns:1fr;gap:2rem}
+  .how-steps,.prog-grid{grid-template-columns:1fr}
+  .h-step{border-right:none;border-bottom:1px solid var(--border)}
+  .prog-card{border-right:none;border-bottom:1px solid var(--border)}
+  .prog-hdr{flex-direction:column;align-items:flex-start;gap:2rem}
+  .prog-note{text-align:left}
+  .cta-sec{grid-template-columns:1fr;gap:3rem}
+  .cta-r{align-items:flex-start}
+  .cta-note{text-align:left}
+  footer{flex-direction:column;align-items:flex-start;gap:2rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">LIFTERS</a>
+  <ul class="nav-links">
+    <li><a href="#philosophy">Philosophy</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <a href="https://apps.apple.com" class="nav-cta" target="_blank">Get Started</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-center">
+    <div class="eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Personal Performance Coaching -- UAE &amp; GCC</span>
+    </div>
+    <h1 class="hero-h reveal">
+      Your Body.<br>
+      Your <em>Performance.</em><br>
+      Your Edge.
+    </h1>
+  </div>
+  <div class="hero-bot reveal" style="transition-delay:.2s">
+    <p class="hero-sub">Lifters is a personal coaching service for high-performing professionals. Structured, private, and built around your life -- not a gym schedule.</p>
+    <div class="hero-acts">
+      <a href="https://apps.apple.com" class="btn-p" target="_blank">Download the App</a>
+      <a href="#programs" class="btn-t">View programs</a>
+    </div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="m-track">
+    <div class="m-item">Personal Coaching<div class="m-dot"></div></div>
+    <div class="m-item">Monthly Subscription<div class="m-dot"></div></div>
+    <div class="m-item">UAE Licensed<div class="m-dot"></div></div>
+    <div class="m-item">GCC Region<div class="m-dot"></div></div>
+    <div class="m-item">Nutrition Guidance<div class="m-dot"></div></div>
+    <div class="m-item">Progress Tracking<div class="m-dot"></div></div>
+    <div class="m-item">Private Coaching<div class="m-dot"></div></div>
+    <div class="m-item">Train Anywhere<div class="m-dot"></div></div>
+    <div class="m-item">Personal Coaching<div class="m-dot"></div></div>
+    <div class="m-item">Monthly Subscription<div class="m-dot"></div></div>
+    <div class="m-item">UAE Licensed<div class="m-dot"></div></div>
+    <div class="m-item">GCC Region<div class="m-dot"></div></div>
+    <div class="m-item">Nutrition Guidance<div class="m-dot"></div></div>
+    <div class="m-item">Progress Tracking<div class="m-dot"></div></div>
+    <div class="m-item">Private Coaching<div class="m-dot"></div></div>
+    <div class="m-item">Train Anywhere<div class="m-dot"></div></div>
+  </div>
+</div>
+
+<section class="phil" id="philosophy">
+  <div>
+    <div class="s-lbl">Our Philosophy</div>
+    <h2 class="s-title reveal">Discipline<br>as a <em>Practice.</em><br>Not a Phase.</h2>
+    <p class="phil-body reveal" style="transition-delay:.1s">Most professionals know what they should be doing. What they lack is a system that works with their life -- not against it. Lifters was built for people who have no margin for error, and even less time to waste.</p>
+    <div class="phil-q reveal" style="transition-delay:.2s">"The goal is not to be fit for a season. It is to perform at your best -- for a lifetime."</div>
+  </div>
+  <div class="pillars">
+    <div class="pillar reveal">
+      <div class="p-num">i.</div>
+      <div class="p-content"><h3>Structured Coaching</h3><p>Every client receives a personalised programme designed by a certified coach. No generic plans. No guesswork.</p></div>
+    </div>
+    <div class="pillar reveal" style="transition-delay:.1s">
+      <div class="p-num">ii.</div>
+      <div class="p-content"><h3>Built Around Your Life</h3><p>Travelling, long hours, Ramadan -- your programme adapts. Your coach adjusts in real time so momentum is never lost.</p></div>
+    </div>
+    <div class="pillar reveal" style="transition-delay:.2s">
+      <div class="p-num">iii.</div>
+      <div class="p-content"><h3>Accountability That Works</h3><p>Weekly check-ins, progress tracking, and a coach who knows your goals. The kind of accountability that actually changes behaviour.</p></div>
+    </div>
+    <div class="pillar reveal" style="transition-delay:.3s">
+      <div class="p-num">iv.</div>
+      <div class="p-content"><h3>No Long-term Contracts</h3><p>Month to month. Stay because it works, not because you have to. We earn your commitment every single month.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="how-intro">
+    <div>
+      <div class="s-lbl">How It Works</div>
+      <h2 class="s-title reveal">As Simple<br>as It Should<br><em>Always</em> Be.</h2>
+    </div>
+    <p class="how-sub reveal" style="transition-delay:.1s">Four steps from where you are to where you want to be. Your coach handles everything in between.</p>
+  </div>
+  <div class="how-steps">
+    <div class="h-step reveal"><div class="h-num">01.</div><h3>Download the App</h3><p>Sign up in minutes. Tell us about your goals, your schedule, and your lifestyle.</p></div>
+    <div class="h-step reveal" style="transition-delay:.1s"><div class="h-num">02.</div><h3>Meet Your Coach</h3><p>A certified coach reviews your profile and designs your programme before day one.</p></div>
+    <div class="h-step reveal" style="transition-delay:.2s"><div class="h-num">03.</div><h3>Follow Your Plan</h3><p>Guided sessions, nutrition guidance, and weekly check-ins -- all in one clean interface.</p></div>
+    <div class="h-step reveal" style="transition-delay:.3s"><div class="h-num">04.</div><h3>Track Your Progress</h3><p>Every metric, every session, every milestone -- see exactly how far you have come.</p></div>
+  </div>
+</section>
+
+<section class="programs" id="programs">
+  <div class="prog-hdr">
+    <div>
+      <div class="s-lbl">Programs</div>
+      <h2 class="s-title reveal">Choose Your<br><em>Level</em> of<br>Commitment.</h2>
+    </div>
+    <p class="prog-note reveal" style="transition-delay:.15s">All programmes are monthly subscriptions. Cancel anytime. All include a dedicated coach and full app access.</p>
+  </div>
+  <div class="prog-grid">
+    <div class="prog-card reveal">
+      <div class="prog-tier">// Foundation</div>
+      <div class="prog-name">Essential</div>
+      <p class="prog-desc">The fundamentals, done properly. Structured coaching for those building their foundation or returning to consistent training.</p>
+      <ul class="prog-feats">
+        <li>Personalised training programme</li>
+        <li>Weekly check-in form</li>
+        <li>In-app coach messaging</li>
+        <li>Progress and metrics tracking</li>
+      </ul>
+      <div class="prog-price"><span class="p-amt">AED 299</span><span class="p-per">/ month</span></div>
+      <a href="https://apps.apple.com" class="prog-cta" target="_blank">Get Started</a>
+    </div>
+    <div class="prog-card feat reveal" style="transition-delay:.1s">
+      <div class="feat-badge">Most Sought</div>
+      <div class="prog-tier">// Performance</div>
+      <div class="prog-name">Pro</div>
+      <p class="prog-desc">For the professional who demands more. Advanced programming with priority access and full nutrition guidance built in.</p>
+      <ul class="prog-feats">
+        <li>Everything in Essential</li>
+        <li>Personalised nutrition plan</li>
+        <li>Priority coach response</li>
+        <li>Bi-weekly video check-in</li>
+        <li>Real-time programme adjustments</li>
+      </ul>
+      <div class="prog-price"><span class="p-amt">AED 499</span><span class="p-per">/ month</span></div>
+      <a href="https://apps.apple.com" class="prog-cta" target="_blank">Get Started</a>
+    </div>
+    <div class="prog-card reveal" style="transition-delay:.2s">
+      <div class="prog-tier">// Executive</div>
+      <div class="prog-name">Elite</div>
+      <p class="prog-desc">Maximum attention. For those who expect the highest standard and need coaching that integrates with a demanding life.</p>
+      <ul class="prog-feats">
+        <li>Everything in Pro</li>
+        <li>Senior dedicated coach</li>
+        <li>Weekly one-on-one video session</li>
+        <li>Direct coach availability</li>
+        <li>Full lifestyle and travel integration</li>
+      </ul>
+      <div class="prog-price"><span class="p-amt">AED 799</span><span class="p-per">/ month</span></div>
+      <a href="https://apps.apple.com" class="prog-cta" target="_blank">Get Started</a>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-grid">
+    <div>
+      <div class="s-lbl">About Lifters</div>
+      <h2 class="s-title reveal">We Know<br>What It Costs<br>to <em>Perform.</em></h2>
+      <div class="about-body reveal" style="transition-delay:.15s">
+        <p>Lifters was founded in Dubai by people who understand what it means to operate at a high level -- and how easily physical health becomes the first thing sacrificed when the pressure builds.</p>
+        <p>We built a coaching service that works the way our clients work. Private, structured, and designed to deliver outcomes -- not just experiences.</p>
+        <p>Our coaches are certified professionals who take your goals as seriously as you do. Every programme is built from scratch. Every adjustment is intentional.</p>
+      </div>
+      <div class="a-stats reveal" style="transition-delay:.2s">
+        <div class="a-stat"><div class="a-val">UAE</div><div class="a-lbl">Licensed Entity</div></div>
+        <div class="a-stat"><div class="a-val">GCC</div><div class="a-lbl">Region Coverage</div></div>
+        <div class="a-stat"><div class="a-val">100%</div><div class="a-lbl">Online Delivery</div></div>
+        <div class="a-stat"><div class="a-val">0</div><div class="a-lbl">Long-term Contracts</div></div>
+      </div>
+    </div>
+    <div class="about-r reveal" style="transition-delay:.1s">
+      <p class="manifesto">"We did not build a gym app. We built a system for people who have too much at stake to leave their health to chance."</p>
+      <p class="a-detail">Every client is matched with a coach who understands their industry, their schedule, and their pressures. Because generic advice is not advice -- it is noise.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta-sec">
+  <h2 class="cta-h reveal">The best time<br>to start was<br><em>last year.</em><br>The next best<br>time is now.</h2>
+  <div class="cta-r reveal" style="transition-delay:.15s">
+    <p class="cta-note">Download the app, choose your programme, and meet your coach -- within 24 hours.</p>
+    <a href="https://apps.apple.com" class="btn-p" target="_blank">Download on App Store</a>
+    <a href="mailto:hello@lifters.app" class="btn-t">Contact us directly</a>
+  </div>
+</div>
+
+<footer>
+  <div class="f-logo">LIFTERS</div>
+  <ul class="f-links">
+    <li><a href="#philosophy">Philosophy</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="mailto:hello@lifters.app">hello@lifters.app</a></li>
+  </ul>
+  <div class="f-copy">(c) 2026 Lifters Lifestyle Consultancy FZ-LLC -- Ras Al Khaimah, UAE</div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('in');obs.unobserve(el.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
