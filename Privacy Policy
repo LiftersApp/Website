@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Lifters</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #000000;
+    --white: #ffffff;
+    --gray: #111111;
+    --mid: #444444;
+    --light: #aaaaaa;
+    --rule: rgba(255,255,255,0.08);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--black);
+    border-bottom: 1px solid var(--rule);
+    padding: 1.25rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 1.6rem;
+    letter-spacing: 0.12em;
+    color: var(--white);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .nav-back {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-back:hover { color: var(--white); }
+
+  .hero {
+    border-bottom: 1px solid var(--rule);
+    padding: 5rem 2.5rem 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .hero-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  .hero-date {
+    font-size: 0.85rem;
+    color: var(--light);
+    letter-spacing: 0.05em;
+  }
+
+  .content-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 0;
+    padding: 0 2.5rem;
+  }
+
+  .sidebar {
+    border-right: 1px solid var(--rule);
+    padding: 4rem 2.5rem 4rem 0;
+    position: sticky;
+    top: 70px;
+    height: fit-content;
+  }
+
+  .sidebar-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 1.5rem;
+  }
+
+  .sidebar a {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    padding: 0.35rem 0;
+    transition: color 0.2s;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .sidebar a:hover { color: var(--white); }
+
+  .content {
+    padding: 4rem 0 6rem 4rem;
+  }
+
+  .section {
+    margin-bottom: 3.5rem;
+    padding-bottom: 3.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .section:last-child {
+    border-bottom: none;
+  }
+
+  .section-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    line-height: 1;
+  }
+
+  p {
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+
+  ul {
+    color: rgba(255,255,255,0.65);
+    padding-left: 1.25rem;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+
+  ul li { margin-bottom: 0.4rem; }
+
+  a { color: var(--white); }
+
+  .contact-block {
+    background: var(--gray);
+    padding: 2rem;
+    margin-top: 1rem;
+  }
+
+  .contact-block p {
+    color: rgba(255,255,255,0.7);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .contact-block a { color: var(--white); }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .footer-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .footer-copy {
+    font-size: 0.8rem;
+    color: var(--light);
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 768px) {
+    .content-wrap { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .content { padding: 3rem 0; }
+    nav { padding: 1rem 1.5rem; }
+    .hero { padding: 3rem 1.5rem 2.5rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Lifters</a>
+  <a href="/" class="nav-back">&#8592; Back to Home</a>
+</nav>
+
+<div class="hero">
+  <p class="hero-label">Legal</p>
+  <h1>Privacy<br>Policy</h1>
+  <p class="hero-date">Last updated: June 24, 2026</p>
+</div>
+
+<div class="content-wrap">
+  <aside class="sidebar">
+    <p class="sidebar-label">Contents</p>
+    <a href="#info">Information We Collect</a>
+    <a href="#health">Health Data</a>
+    <a href="#use">How We Use It</a>
+    <a href="#apple">Apple Health</a>
+    <a href="#sharing">Sharing</a>
+    <a href="#security">Security</a>
+    <a href="#retention">Retention</a>
+    <a href="#deletion">Account Deletion</a>
+    <a href="#children">Children</a>
+    <a href="#changes">Changes</a>
+    <a href="#contact">Contact</a>
+  </aside>
+
+  <main class="content">
+
+    <div class="section">
+      <p>This Privacy Policy describes how Lifters Lifestyle Consultancy FZ-LLC ("Lifters", "we", "us", or "our") collects, uses, and protects your personal information when you use the Lifters mobile application and website at lifters.app.</p>
+      <p>By using our Service, you agree to the collection and use of information in accordance with this policy.</p>
+    </div>
+
+    <div class="section" id="info">
+      <p class="section-num">01</p>
+      <h2>Information We Collect</h2>
+      <p>We collect information you provide directly to us, including:</p>
+      <ul>
+        <li>Name, email address, and account credentials</li>
+        <li>Fitness goals, training preferences, and lifestyle information</li>
+        <li>Health and fitness data including workout activity, exercise logs, and progress metrics</li>
+        <li>Payment information (processed securely by third-party providers)</li>
+        <li>Communications between you and your coach</li>
+      </ul>
+    </div>
+
+    <div class="section" id="health">
+      <p class="section-num">02</p>
+      <h2>Health Data Utilization</h2>
+      <p>Our app collects and processes health-related information such as workout activity, exercise logs, heart rate, and other fitness metrics. This data is collected only with your explicit consent and is used exclusively to deliver core app features, including fitness tracking, progress insights, and cross-device synchronization.</p>
+      <p>We do not share your health data with any third parties, and we do not use this data for advertising or marketing purposes. All health information is stored securely and access is limited to authorized personnel only.</p>
+      <p>If you choose to delete your account, all associated personal and health-related data will be permanently deleted from our systems.</p>
+    </div>
+
+    <div class="section" id="use">
+      <p class="section-num">03</p>
+      <h2>How We Use Your Information</h2>
+      <p>We use the information we collect to:</p>
+      <ul>
+        <li>Provide, maintain, and improve our coaching services</li>
+        <li>Match you with a certified coach and personalize your training programme</li>
+        <li>Track your progress and performance over time</li>
+        <li>Send you training reminders, check-ins, and service updates</li>
+        <li>Process payments and manage your subscription</li>
+        <li>Respond to your questions and provide customer support</li>
+        <li>Comply with legal obligations</li>
+      </ul>
+    </div>
+
+    <div class="section" id="apple">
+      <p class="section-num">04</p>
+      <h2>Apple Health Integration</h2>
+      <p>With your permission, our app integrates with Apple Health to sync fitness metrics. Data retrieved from Apple Health is used solely to enhance your coaching experience and is never shared with third parties or used for advertising purposes.</p>
+    </div>
+
+    <div class="section" id="sharing">
+      <p class="section-num">05</p>
+      <h2>Sharing of Information</h2>
+      <p>We do not sell or rent your personal information. We may share your information only in the following circumstances:</p>
+      <ul>
+        <li>With your assigned coach, to the extent necessary to deliver your training programme</li>
+        <li>With trusted service providers who assist in operating our platform, under strict confidentiality obligations</li>
+        <li>If required by law or to protect the rights and safety of Lifters or its users</li>
+      </ul>
+    </div>
+
+    <div class="section" id="security">
+      <p class="section-num">06</p>
+      <h2>Data Security</h2>
+      <p>We implement industry-standard security measures to protect your personal information. No method of transmission over the internet is 100% secure, but we use commercially acceptable means to protect your data at all times.</p>
+    </div>
+
+    <div class="section" id="retention">
+      <p class="section-num">07</p>
+      <h2>Data Retention</h2>
+      <p>We retain your personal information for as long as your account is active or as needed to provide our services. You may request deletion of your account and associated data at any time.</p>
+    </div>
+
+    <div class="section" id="deletion">
+      <p class="section-num">08</p>
+      <h2>Account Deletion</h2>
+      <p>To request deletion of your personal information, submit a request through our in-app settings or contact us directly. Write "delete my account" in the subject line and include your full name and email address. We will use commercially reasonable efforts to honor your request within a reasonable timeframe.</p>
+      <p>We may retain an archived copy of your records as required by law or for administrative purposes. Communications you have sent through the Service may not be subject to deletion.</p>
+    </div>
+
+    <div class="section" id="children">
+      <p class="section-num">09</p>
+      <h2>Children's Privacy</h2>
+      <p>Our Service is not directed at individuals under the age of 18. We do not knowingly collect personal information from minors. If we become aware that a minor has provided us with personal information, we will take immediate steps to delete it.</p>
+    </div>
+
+    <div class="section" id="changes">
+      <p class="section-num">10</p>
+      <h2>Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by posting the new policy on this page and updating the date above. Continued use of the Service after changes are posted constitutes your acceptance.</p>
+    </div>
+
+    <div class="section" id="contact">
+      <p class="section-num">11</p>
+      <h2>Contact Us</h2>
+      <div class="contact-block">
+        <p>Lifters Lifestyle Consultancy FZ-LLC<br>
+        Compass Building, Al Shohada Road<br>
+        Al Hamra Industrial Zone, Ras Al Khaimah<br>
+        United Arab Emirates<br>
+        <a href="mailto:hello@lifters.app">hello@lifters.app</a></p>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <span class="footer-logo">Lifters</span>
+  <span class="footer-copy">&copy; 2026 Lifters Lifestyle Consultancy FZ-LLC</span>
+</footer>
+
+</body>
+</html>
