@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — Lifters</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #000000;
+    --white: #ffffff;
+    --gray: #111111;
+    --mid: #444444;
+    --light: #aaaaaa;
+    --rule: rgba(255,255,255,0.08);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--black);
+    border-bottom: 1px solid var(--rule);
+    padding: 1.25rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 1.6rem;
+    letter-spacing: 0.12em;
+    color: var(--white);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .nav-back {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-back:hover { color: var(--white); }
+
+  .hero {
+    border-bottom: 1px solid var(--rule);
+    padding: 5rem 2.5rem 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .hero-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  .hero-date {
+    font-size: 0.85rem;
+    color: var(--light);
+    letter-spacing: 0.05em;
+  }
+
+  .content-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 0;
+    padding: 0 2.5rem;
+  }
+
+  .sidebar {
+    border-right: 1px solid var(--rule);
+    padding: 4rem 2.5rem 4rem 0;
+    position: sticky;
+    top: 70px;
+    height: fit-content;
+  }
+
+  .sidebar-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 1.5rem;
+  }
+
+  .sidebar a {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    padding: 0.35rem 0;
+    transition: color 0.2s;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .sidebar a:hover { color: var(--white); }
+
+  .content {
+    padding: 4rem 0 6rem 4rem;
+  }
+
+  .section {
+    margin-bottom: 3.5rem;
+    padding-bottom: 3.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .section:last-child { border-bottom: none; }
+
+  .section-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    line-height: 1;
+  }
+
+  p {
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+
+  ul {
+    color: rgba(255,255,255,0.65);
+    padding-left: 1.25rem;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+
+  ul li { margin-bottom: 0.4rem; }
+
+  a { color: var(--white); }
+
+  .contact-block {
+    background: var(--gray);
+    padding: 2rem;
+    margin-top: 1rem;
+  }
+
+  .contact-block p {
+    color: rgba(255,255,255,0.7);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .contact-block a { color: var(--white); }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .footer-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .footer-copy {
+    font-size: 0.8rem;
+    color: var(--light);
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 768px) {
+    .content-wrap { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .content { padding: 3rem 0; }
+    nav { padding: 1rem 1.5rem; }
+    .hero { padding: 3rem 1.5rem 2.5rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Lifters</a>
+  <a href="/" class="nav-back">&#8592; Back to Home</a>
+</nav>
+
+<div class="hero">
+  <p class="hero-label">Legal</p>
+  <h1>Terms of<br>Service</h1>
+  <p class="hero-date">Last updated: June 24, 2026</p>
+</div>
+
+<div class="content-wrap">
+  <aside class="sidebar">
+    <p class="sidebar-label">Contents</p>
+    <a href="#use">Use of Service</a>
+    <a href="#payments">Subscriptions</a>
+    <a href="#coaching">Coaching Services</a>
+    <a href="#responsibilities">Your Responsibilities</a>
+    <a href="#ip">Intellectual Property</a>
+    <a href="#health">Health Disclaimer</a>
+    <a href="#liability">Liability</a>
+    <a href="#termination">Termination</a>
+    <a href="#law">Governing Law</a>
+    <a href="#changes">Changes</a>
+    <a href="#contact">Contact</a>
+  </aside>
+
+  <main class="content">
+
+    <div class="section">
+      <p>Please read these Terms of Service carefully before using the Lifters mobile application or website at lifters.app, operated by Lifters Lifestyle Consultancy FZ-LLC ("Lifters", "we", "us", or "our").</p>
+      <p>By accessing or using our Service, you agree to be bound by these Terms. If you do not agree, do not use the Service.</p>
+    </div>
+
+    <div class="section" id="use">
+      <p class="section-num">01</p>
+      <h2>Use of the Service</h2>
+      <p>Lifters provides a personal fitness coaching platform connecting users with certified coaches. You must be at least 18 years of age to use the Service. By using it, you confirm you meet this requirement.</p>
+      <p>You agree to use the Service only for lawful purposes and in accordance with these Terms. You are responsible for maintaining the confidentiality of your account credentials.</p>
+    </div>
+
+    <div class="section" id="payments">
+      <p class="section-num">02</p>
+      <h2>Subscriptions and Payments</h2>
+      <p>Access to coaching services requires a paid monthly subscription. Subscriptions renew automatically each month unless cancelled. All fees are stated in AED and are non-refundable except as required by applicable law.</p>
+      <p>You may cancel at any time. Cancellation takes effect at the end of the current billing period. We reserve the right to modify pricing with reasonable advance notice.</p>
+    </div>
+
+    <div class="section" id="coaching">
+      <p class="section-num">03</p>
+      <h2>Coaching Services</h2>
+      <p>Our coaches are certified fitness professionals. Training programmes and guidance provided through the Service are for general fitness purposes only and do not constitute medical advice. Consult a qualified healthcare professional before beginning any new fitness programme, particularly if you have pre-existing health conditions.</p>
+      <p>Results will vary by individual. We do not guarantee specific fitness outcomes.</p>
+    </div>
+
+    <div class="section" id="responsibilities">
+      <p class="section-num">04</p>
+      <h2>Your Responsibilities</h2>
+      <p>You agree to:</p>
+      <ul>
+        <li>Provide accurate and complete information when creating your account</li>
+        <li>Keep your account information up to date</li>
+        <li>Use the Service in a way that does not interfere with other users or the platform</li>
+        <li>Not share your account credentials with any third party</li>
+        <li>Not reproduce, distribute, or commercially exploit any content from the Service without our written permission</li>
+      </ul>
+    </div>
+
+    <div class="section" id="ip">
+      <p class="section-num">05</p>
+      <h2>Intellectual Property</h2>
+      <p>All content on the Service — including training programmes, exercise libraries, text, graphics, and software — is the property of Lifters Lifestyle Consultancy FZ-LLC or its licensors and is protected by applicable intellectual property laws.</p>
+      <p>You are granted a limited, non-exclusive, non-transferable licence to access and use the Service for personal, non-commercial purposes only.</p>
+    </div>
+
+    <div class="section" id="health">
+      <p class="section-num">06</p>
+      <h2>Health and Safety Disclaimer</h2>
+      <p>Physical exercise carries inherent risks. By using the Service, you acknowledge that you are voluntarily participating in fitness activities and assume all associated risks. Lifters is not liable for any injury, illness, or health complications arising from your use of the Service or participation in any training programme.</p>
+    </div>
+
+    <div class="section" id="liability">
+      <p class="section-num">07</p>
+      <h2>Limitation of Liability</h2>
+      <p>To the maximum extent permitted by applicable law, Lifters Lifestyle Consultancy FZ-LLC shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the Service.</p>
+      <p>Our total liability for any claims arising under these Terms shall not exceed the amount you paid us in the three months preceding the claim.</p>
+    </div>
+
+    <div class="section" id="termination">
+      <p class="section-num">08</p>
+      <h2>Termination</h2>
+      <p>We reserve the right to suspend or terminate your account at our discretion if you violate these Terms or engage in conduct we deem harmful to the Service or other users. Upon termination, your right to use the Service ceases immediately.</p>
+    </div>
+
+    <div class="section" id="law">
+      <p class="section-num">09</p>
+      <h2>Governing Law</h2>
+      <p>These Terms are governed by the laws of the United Arab Emirates and the regulations of the Ras Al Khaimah Economic Zone Authority. Any disputes shall be subject to the exclusive jurisdiction of the courts of Ras Al Khaimah, UAE.</p>
+    </div>
+
+    <div class="section" id="changes">
+      <p class="section-num">10</p>
+      <h2>Changes to These Terms</h2>
+      <p>We may update these Terms from time to time. We will notify you of material changes by posting the updated Terms on this page. Continued use of the Service after changes are posted constitutes your acceptance.</p>
+    </div>
+
+    <div class="section" id="contact">
+      <p class="section-num">11</p>
+      <h2>Contact Us</h2>
+      <div class="contact-block">
+        <p>Lifters Lifestyle Consultancy FZ-LLC<br>
+        Compass Building, Al Shohada Road<br>
+        Al Hamra Industrial Zone, Ras Al Khaimah<br>
+        United Arab Emirates<br>
+        <a href="mailto:hello@lifters.app">hello@lifters.app</a></p>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <span class="footer-logo">Lifters</span>
+  <span class="footer-copy">&copy; 2026 Lifters Lifestyle Consultancy FZ-LLC</span>
+</footer>
+
+</body>
+</html>
