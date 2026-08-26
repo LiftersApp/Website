@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Started — Lifters</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #0A0A0A;
+  --navy: #1A3172;
+  --navy-dark: #111f4d;
+  --white: #FFFFFF;
+  --grey: #A8A8A8;
+  --ice: #9FBBC1;
+  --light: #F5F7FA;
+  --rule: rgba(26,49,114,0.12);
+  --error: #e53e3e;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--white);
+  color: var(--black);
+  font-family: 'Archivo', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* NAV */
+nav {
+  background: var(--black);
+  padding: 1.1rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.nav-back {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 500;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--grey);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-back:hover { color: var(--white); }
+
+/* HERO */
+.hero {
+  background: var(--navy);
+  padding: 4rem 2.5rem 3rem;
+  text-align: center;
+}
+
+.hero-label {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ice);
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.65);
+  max-width: 440px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+/* STEPS BAR */
+.steps-bar {
+  background: var(--black);
+  padding: 1rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.step-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #2a2a2a;
+  color: var(--grey);
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s;
+}
+
+.step-num.active { background: var(--navy); color: var(--white); }
+.step-num.done { background: var(--ice); color: var(--black); }
+
+.step-label {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #444;
+  transition: color 0.3s;
+}
+
+.step-label.active { color: var(--white); }
+
+.step-divider {
+  width: 40px;
+  height: 1px;
+  background: #2a2a2a;
+  margin: 0 0.75rem;
+}
+
+/* MAIN */
+.main {
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 3rem 2rem 5rem;
+}
+
+.panel { display: none; }
+.panel.active {
+  display: block;
+  animation: fadeUp 0.3s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.panel-title {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--navy);
+  margin-bottom: 0.25rem;
+}
+
+.panel-sub {
+  font-size: 0.88rem;
+  color: var(--grey);
+  margin-bottom: 2rem;
+}
+
+/* FIELDS */
+.field { margin-bottom: 1.25rem; }
+
+.field label {
+  display: block;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-bottom: 0.4rem;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1.5px solid #e0e4ef;
+  background: var(--light);
+  font-family: 'Archivo', sans-serif;
+  font-size: 0.95rem;
+  color: var(--black);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  appearance: none;
+  border-radius: 0;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--navy);
+  background: var(--white);
+}
+
+.field input.error,
+.field select.error { border-color: var(--error); }
+
+.field-error {
+  font-size: 0.78rem;
+  color: var(--error);
+  margin-top: 0.3rem;
+  display: none;
+}
+.field-error.visible { display: block; }
+
+.field-note {
+  font-size: 0.78rem;
+  color: var(--grey);
+  margin-top: 0.3rem;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* BUTTONS */
+.btn-primary {
+  width: 100%;
+  padding: 1rem;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 0.5rem;
+}
+.btn-primary:hover { background: var(--navy-dark); }
+
+.btn-secondary {
+  background: none;
+  border: none;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 500;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey);
+  cursor: pointer;
+  padding: 0.75rem 0;
+  display: block;
+  text-align: center;
+  width: 100%;
+  transition: color 0.2s;
+}
+.btn-secondary:hover { color: var(--navy); }
+
+/* BOOKING */
+.booking-info {
+  background: #eef1f8;
+  border-left: 3px solid var(--navy);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+}
+.booking-info p {
+  font-size: 0.88rem;
+  color: var(--black);
+  line-height: 1.65;
+}
+.booking-info strong { color: var(--navy); }
+
+.calendly-placeholder {
+  border: 2px dashed #dde1ee;
+  padding: 3rem 2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  background: var(--light);
+}
+.calendly-placeholder p {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 0.4rem;
+}
+.calendly-placeholder span {
+  font-size: 0.82rem;
+  color: var(--grey);
+}
+
+.btn-book {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background: var(--navy);
+  color: var(--white);
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background 0.2s;
+}
+.btn-book:hover { background: var(--navy-dark); }
+
+/* SUCCESS */
+.success-panel { text-align: center; padding: 2rem 0; }
+
+.success-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--navy);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+.success-icon svg {
+  width: 30px; height: 30px;
+  stroke: var(--white); fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+
+.success-panel h2 {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+.success-panel p {
+  font-size: 0.9rem;
+  color: var(--grey);
+  max-width: 360px;
+  margin: 0 auto 2rem;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #e0e4ef;
+  margin: 2rem 0;
+}
+
+.app-btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.app-btn {
+  display: inline-block;
+  background: var(--black);
+  color: var(--white);
+  padding: 0.75rem 1.5rem;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.app-btn:hover { background: var(--navy); }
+
+/* FOOTER */
+footer {
+  background: var(--black);
+  padding: 1.5rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-logo {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+.footer-copy { font-size: 0.72rem; color: var(--grey); }
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  nav { padding: 1rem 1.5rem; }
+  .hero { padding: 3rem 1.5rem 2.5rem; }
+  .steps-bar { padding: 1rem; }
+  .step-label { display: none; }
+  .main { padding: 2.5rem 1.5rem 4rem; }
+  .field-row { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">Lifters</a>
+  <a href="/" class="nav-back">&#8592; Back</a>
+</nav>
+
+<div class="hero">
+  <p class="hero-label">Start Your Journey</p>
+  <h1>Train With a<br>Real Coach</h1>
+  <p>Tell us about yourself and book a free consultation call. Your coach will be in touch within 24 hours.</p>
+</div>
+
+<div class="steps-bar">
+  <div class="step-item">
+    <div class="step-num active" id="step-num-1">1</div>
+    <span class="step-label active" id="step-label-1">Your Details</span>
+  </div>
+  <div class="step-divider"></div>
+  <div class="step-item">
+    <div class="step-num" id="step-num-2">2</div>
+    <span class="step-label" id="step-label-2">Book a Call</span>
+  </div>
+  <div class="step-divider"></div>
+  <div class="step-item">
+    <div class="step-num" id="step-num-3">3</div>
+    <span class="step-label" id="step-label-3">Done</span>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- STEP 1 -->
+  <div class="panel active" id="panel-1">
+    <h2 class="panel-title">Your Details</h2>
+    <p class="panel-sub">We'll use this to match you with the right coach.</p>
+
+    <div class="field-row">
+      <div class="field">
+        <label for="first-name">First Name *</label>
+        <input type="text" id="first-name" placeholder="First name" autocomplete="given-name">
+        <div class="field-error" id="first-name-error">Please enter your first name</div>
+      </div>
+      <div class="field">
+        <label for="last-name">Last Name *</label>
+        <input type="text" id="last-name" placeholder="Last name" autocomplete="family-name">
+        <div class="field-error" id="last-name-error">Please enter your last name</div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" placeholder="you@example.com" autocomplete="email">
+      <div class="field-error" id="email-error">Please enter a valid email address</div>
+    </div>
+
+    <div class="field">
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" placeholder="+971 50 000 0000" autocomplete="tel">
+      <div class="field-note">Optional — your coach may reach out to confirm your call</div>
+    </div>
+
+    <div class="field">
+      <label for="country">Country *</label>
+      <select id="country">
+        <option value="" disabled selected>Select your country</option>
+        <option value="AE">United Arab Emirates</option>
+        <option value="SA">Saudi Arabia</option>
+        <option value="KW">Kuwait</option>
+        <option value="QA">Qatar</option>
+        <option value="BH">Bahrain</option>
+        <option value="OM">Oman</option>
+        <option value="LB">Lebanon</option>
+        <option value="EG">Egypt</option>
+        <option value="JO">Jordan</option>
+        <option value="OTHER">Other</option>
+      </select>
+      <div class="field-error" id="country-error">Please select your country</div>
+    </div>
+
+    <button class="btn-primary" onclick="goToStep2()">Continue — Book a Call</button>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="panel" id="panel-2">
+    <h2 class="panel-title">Book Your Call</h2>
+    <p class="panel-sub">Pick a time that works for you. Free, no commitment, 20 minutes.</p>
+
+    <div class="booking-info">
+      <p>You'll speak with one of our coaches about your <strong>goals, schedule, and lifestyle</strong>. This helps us assign the right coach and build a programme that actually fits your life.</p>
+    </div>
+
+    <div class="calendly-placeholder">
+      <p>Booking Calendar</p>
+      <span>Select a date and time for your free consultation</span>
+    </div>
+
+    <a href="mailto:hello@lifters.app?subject=Consultation Call Request" class="btn-book">
+      Book via Email
+    </a>
+
+    <button class="btn-secondary" onclick="goToStep3()">I'll book later — complete sign up</button>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="panel" id="panel-3">
+    <div class="success-panel">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+      <h2>You're In.</h2>
+      <p>We've received your details. A member of the Lifters team will be in touch within 24 hours to confirm your consultation call.</p>
+
+      <hr class="divider">
+
+      <p style="font-size:0.82rem; color:var(--grey);">In the meantime, download the app so you're ready to go.</p>
+
+      <div class="app-btns">
+        <a href="https://apps.apple.com" class="app-btn">App Store</a>
+        <a href="https://play.google.com" class="app-btn">Google Play</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-logo">Lifters</span>
+  <span class="footer-copy">&copy; 2026 Lifters Lifestyle Consultancy FZ-LLC</span>
+</footer>
+
+<script>
+function goToStep2() {
+  let valid = true;
+  const firstName = document.getElementById('first-name');
+  const lastName = document.getElementById('last-name');
+  const email = document.getElementById('email');
+  const country = document.getElementById('country');
+
+  [['first-name', firstName], ['last-name', lastName]].forEach(([id, el]) => {
+    if (!el.value.trim()) {
+      el.classList.add('error');
+      document.getElementById(id + '-error').classList.add('visible');
+      valid = false;
+    } else {
+      el.classList.remove('error');
+      document.getElementById(id + '-error').classList.remove('visible');
+    }
+  });
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+    email.classList.add('error');
+    document.getElementById('email-error').classList.add('visible');
+    valid = false;
+  } else {
+    email.classList.remove('error');
+    document.getElementById('email-error').classList.remove('visible');
+  }
+
+  if (!country.value) {
+    country.classList.add('error');
+    document.getElementById('country-error').classList.add('visible');
+    valid = false;
+  } else {
+    country.classList.remove('error');
+    document.getElementById('country-error').classList.remove('visible');
+  }
+
+  if (!valid) return;
+  setStep(2);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function goToStep3() {
+  setStep(3);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function setStep(n) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-' + n).classList.add('active');
+  for (let i = 1; i <= 3; i++) {
+    const num = document.getElementById('step-num-' + i);
+    const lbl = document.getElementById('step-label-' + i);
+    num.classList.remove('active', 'done');
+    lbl.classList.remove('active');
+    if (i < n) { num.classList.add('done'); num.textContent = '✓'; }
+    else if (i === n) { num.classList.add('active'); lbl.classList.add('active'); num.textContent = i; }
+    else { num.textContent = i; }
+  }
+}
+</script>
+
+</body>
+</html>
